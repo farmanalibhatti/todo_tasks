@@ -1,7 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:splashscreen/splashscreen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(new MaterialApp(
+    home: AppSplash(),
+  ));
+}
+
+class AppSplash extends StatefulWidget {
+  @override
+  _AppSplashState createState() => new _AppSplashState();
+}
+
+class _AppSplashState extends State<AppSplash> {
+  @override
+  Widget build(BuildContext context) {
+    return new SplashScreen(
+      seconds: 5,
+      navigateAfterSeconds: new MyApp(),
+      title: new Text(
+        'Todos App',
+        style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 30.0),
+      ),
+      image: new Image.asset('assets/images/farman.jpg'),
+      backgroundColor: Colors.white,
+      loaderColor: Colors.blue,
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
